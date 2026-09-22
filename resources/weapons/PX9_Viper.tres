@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapons/WeaponData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+weapon_name = "PX-9 \"Viper\""
+category = "Pistol"
+damage = 26.0
+damage_min = 12.0
+headshot_multiplier = 2.0
+max_range = 60.0
+effective_range = 25.0
+fire_rate = 350.0
+magazine_size = 12
+start_reserve = 48
+reload_time = 1.6
+fire_mode = 1
+fire_type = 0
+pellets = 1
+spread_hip_deg = 1.0
+spread_ads_deg = 0.2
+recoil_pitch_deg = 0.5
+move_speed_multiplier = 1.05
+ads_fov = 60.0

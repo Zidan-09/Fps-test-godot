@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapons/Weapon.gd" id="1_weapon"]
+[ext_resource type="Resource" path="res://resources/weapons/AR01_Raptor.tres" id="2_data"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gun"]
+size = Vector3(0.09, 0.13, 0.55)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sight"]
+size = Vector3(0.03, 0.05, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_gun"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+roughness = 0.6
+metallic = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_flash"]
+radius = 0.07
+height = 0.16
+
+[sub_resource type="StandardMaterial3D" id="Mat_flash"]
+shading_mode = 0
+albedo_color = Color(1, 0.8, 0.3, 1)
+emission_enabled = true
+emission = Color(1, 0.7, 0.2, 1)
+emission_energy_multiplier = 3.0
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_weapon")
+data = ExtResource("2_data")
+
+[node name="GunBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.22, -0.45)
+mesh = SubResource("BoxMesh_gun")
+material_override = SubResource("Mat_gun")
+cast_shadow = 0
+
+[node name="Sight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.13, -0.35)
+mesh = SubResource("BoxMesh_sight")
+material_override = SubResource("Mat_gun")
+cast_shadow = 0
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.2, -0.75)
+
+[node name="Flash" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.2, -0.78)
+visible = false
+mesh = SubResource("SphereMesh_flash")
+material_override = SubResource("Mat_flash")
+cast_shadow = 0

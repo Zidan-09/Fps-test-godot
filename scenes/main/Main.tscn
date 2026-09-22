@@ -1,0 +1,75 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/Main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/map/MapShipment.tscn" id="2_arena"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="3_player"]
+[ext_resource type="Script" path="res://scripts/core/GameManager.gd" id="4_gm"]
+[ext_resource type="Script" path="res://scripts/ui/DebugHUD.gd" id="5_debug"]
+[ext_resource type="Script" path="res://scripts/ui/CombatHUD.gd" id="6_combat"]
+[ext_resource type="Script" path="res://scripts/core/DebugKeys.gd" id="7_keys"]
+[ext_resource type="Script" path="res://scripts/ui/LoadoutMenu.gd" id="8_loadout"]
+[ext_resource type="Script" path="res://scripts/ui/MatchEndScreen.gd" id="9_score"]
+[ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="10_menu"]
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="11_pause"]
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMat_1"]
+sky_top_color = Color(0.35, 0.45, 0.6, 1)
+sky_horizon_color = Color(0.65, 0.7, 0.78, 1)
+ground_bottom_color = Color(0.25, 0.25, 0.28, 1)
+ground_horizon_color = Color(0.55, 0.57, 0.62, 1)
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("SkyMat_1")
+
+[sub_resource type="Environment" id="Env_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 2
+ambient_light_color = Color(0.7, 0.75, 0.85, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 2
+glow_enabled = false
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 12, 4)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Arena" parent="." instance=ExtResource("2_arena")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10)
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("4_gm")
+match_duration = 300.0
+bot_count = 7
+bot_difficulty = 1
+kill_limit = 30
+
+[node name="DebugHUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_debug")
+
+[node name="CombatHUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_combat")
+
+[node name="DebugKeys" type="Node" parent="."]
+script = ExtResource("7_keys")
+
+[node name="LoadoutMenu" type="CanvasLayer" parent="."]
+script = ExtResource("8_loadout")
+
+[node name="MatchEndScreen" type="CanvasLayer" parent="."]
+script = ExtResource("9_score")
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+script = ExtResource("10_menu")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("11_pause")

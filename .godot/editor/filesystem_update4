@@ -1,0 +1,15 @@
+res://scripts/gameplay/TestArena.gd
+res://scripts/player/Player.gd
+res://resources/weapons/AR01_Raptor.tres
+res://scripts/core/DebugKeys.gd
+res://scripts/core/EventBus.gd
+res://scripts/core/Main.gd
+res://scripts/ui/CombatHUD.gd
+res://scripts/weapons/Weapon.gd
+res://scripts/core/AudioManager.gd
+res://scripts/core/GameManager.gd
+res://scripts/gameplay/MapShipment.gd
+res://scripts/core/GameConfig.gd
+res://scripts/ui/DebugHUD.gd
+res://scripts/ui/LoadoutMenu.gd
+res://sim_driver.gd

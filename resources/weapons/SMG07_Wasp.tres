@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapons/WeaponData.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+weapon_name = "SMG-07 \"Wasp\""
+category = "SMG"
+damage = 14.0
+damage_min = 9.0
+headshot_multiplier = 2.0
+max_range = 60.0
+effective_range = 25.0
+fire_rate = 800.0
+magazine_size = 32
+start_reserve = 128
+reload_time = 1.9
+fire_mode = 0
+fire_type = 0
+pellets = 1
+spread_hip_deg = 2.2
+spread_ads_deg = 0.8
+recoil_pitch_deg = 0.28
+move_speed_multiplier = 1.05
+ads_fov = 58.0
